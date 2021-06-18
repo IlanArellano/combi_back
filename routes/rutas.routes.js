@@ -8,10 +8,10 @@ const {
   deleteRutas,
 } = require("../controllers/rutas.controller");
 
-route.get("/", selectRutas);
-route.get("/:id", selectRutasById);
-route.post("/", addRutas);
-route.put("/:id", updateRutas);
-route.delete("/:id", deleteRutas);
+route.get("/:token", selectRutas);
+route.get("/:token/:id", selectRutasById);
+route.post("/:token", addRutas);
+route.put("/:token/:id", updateRutas);
+route.delete("/:token/:id", deleteRutas);
 
 module.exports = route;

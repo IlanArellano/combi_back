@@ -15,8 +15,7 @@ const selectDevices = async (req, res) => {
 const selectDevicesById = async (req, res) => {
   const { id, token } = req.params;
   try {
-    const query =
-      "SELECT * FROM dispositivos AS d JOIN recorrido AS r ON d.id_recorrido = r.id_recorrido WHERE id_device = ? AND userToken = ?";
+    const query = "SELECT * FROM dispositivos WHERE id = ? AND userToken = ?";
     const response = await pool.query(query, [id, token]);
     res.status(200).json(response);
   } catch (error) {
@@ -42,8 +41,7 @@ const updateDeviesById = async (req, res) => {
   const { id_recorrido, hora } = req.body;
   try {
     const updateD = { id_recorrido, hora };
-    const query =
-      "UPDATE dispositivos SET ? WHERE id_device = ? AND userToken = ?";
+    const query = "UPDATE dispositivos SET ? WHERE id = ? AND userToken = ?";
     const response = await pool.query(query, [updateD, id, token]);
     res.status(200).json(response);
   } catch (error) {
@@ -54,8 +52,7 @@ const updateDeviesById = async (req, res) => {
 const deleteDeviesById = async (req, res) => {
   const { id, token } = req.params;
   try {
-    const query =
-      "DELETE FROM dispositivos WHERE id_device = ? AND userToken = ?";
+    const query = "DELETE FROM dispositivos WHERE id = ? AND userToken = ?";
     const response = await pool.query(query, [id, token]);
     res.status(200).json(response);
   } catch (error) {
