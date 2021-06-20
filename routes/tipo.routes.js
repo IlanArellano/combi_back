@@ -7,10 +7,10 @@ const {
   deleteTipoById,
 } = require("../controllers/tipo.controller");
 
-route.get("/", selectTipo);
-route.get("/:nombre", selectTipoByNombre);
-route.post("/", addTipo);
-route.put("/:id", updateTipoById);
-route.delete("/:id", deleteTipoById);
+route.get("/:token", selectTipo);
+route.get("/:token/:nombre", selectTipoByNombre);
+route.post("/:token", addTipo);
+route.put("/:token/:id", updateTipoById);
+route.delete("/:token/:id", deleteTipoById);
 
 module.exports = route;
