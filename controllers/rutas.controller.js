@@ -60,7 +60,7 @@ const updateRutas = async (req, res) => {
 const deleteRutas = async (req, res) => {
   const { id, token } = req.params;
   try {
-    const query = "DELETE FROM rutas WHERE id_ruta = ? AND userToken = ?";
+    const query = "DELETE FROM rutas WHERE iddevice = ? AND userToken = ?";
     const response = await pool.query(query, [id, token]);
     res.status(200).json(response);
   } catch (error) {
